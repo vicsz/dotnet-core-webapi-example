@@ -16,6 +16,28 @@ _#dotnet run
 
 _#curl localhost:5000/api/values_
 
+## Install Cloud Foundry commandline 
+
+_#brew tap cloudfoundry/tap_
+
+_#brew install cf-cli_
+
+## Connect and login to your PCF instance (you can try a trial one at (https://run.pivotal.io)
+
+_#cf login -a add.pcf.api.url.here_
+
+## Create a PCF space (if needed)
+
+_#cf create-space sample-space_
+
+## Build your app 
+
+_#cf dotnet publish_
+
+## Deploy app to PCF 
+
+_#cf push dotnet-core -p bin/Debug/netcoreapp2.0/_  (where dotnetcore will be your PCF app name)
+
 
 
 
