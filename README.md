@@ -10,7 +10,7 @@ _#dotnet new webapi -o dotnet-core-webapi-example_
 
 _#cd dotnet-core-webapi-example_
 
-_#dotnet run
+_#dotnet run_
 
 ## Verify Application is running by making a call to it :
 

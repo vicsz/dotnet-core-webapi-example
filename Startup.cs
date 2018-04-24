@@ -8,6 +8,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using Steeltoe.Management.CloudFoundry;
+using Steeltoe.Management.Endpoint.Health;
 
 namespace dotnet_core_webapi_example
 {
@@ -24,6 +26,8 @@ namespace dotnet_core_webapi_example
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+            services.AddCloudFoundryActuators(Configuration);
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -35,6 +39,9 @@ namespace dotnet_core_webapi_example
             }
 
             app.UseMvc();
+
+            //app.UseHealthActuator();
+            app.UseCloudFoundryActuators();
         }
     }
 }
